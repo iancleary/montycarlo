@@ -13,7 +13,7 @@ A generic Monte Carlo simulation engine for Rust.
 
 ```toml
 [dependencies]
-montycarlo = "0.1.0"
+montycarlo = "0.1.1"
 ```
 
 ## Quick example

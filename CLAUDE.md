@@ -1,37 +1,32 @@
-# CLAUDE.md — rfconversions
+# CLAUDE.md — montycarlo
 
 ## Overview
 
-Rust crate providing common RF engineering unit conversions: power (watts ↔ dBm, dB ↔ linear), frequency scaling (Hz/kHz/MHz/GHz/THz + wavelength), noise (NF ↔ noise factor ↔ noise temperature), P1dB compression point conversions, physical constants, and system-level helpers (G/T, N₀). Published on crates.io.
+`montycarlo` is a generic Monte Carlo simulation engine for Rust.
+
+Core API:
+- `Simulation` trait: define random sampling + evaluation
+- `MonteCarloEngine`: run trials sequentially or in parallel
+- `MonteCarloResult`: mean, variance, std dev, percentile, median, CDF, exceedance
 
 ## Commands
 
 ```bash
-cargo test                        # Run all 194 tests (coverage not re-baselined in this sprint)
-cargo clippy -- -D warnings       # Lint
-cargo fmt -- --check              # Format check
-cargo doc --open                  # Generate and view API docs
+cargo test
+cargo clippy -- -D warnings
+cargo fmt -- --check
+cargo bench
+cargo doc --open
 ```
 
 ## Metrics
 
-- **Version:** v0.7.3
-- **Test Count:** 194
-- **Coverage:** not re-baselined in this sprint
-
-## Module Map
-
-| Module | File | Description |
-|--------|------|-------------|
-| `power` | `src/power.rs` | `watts_to_dbm`, `dbm_to_watts`, `db_to_linear`, `linear_to_db` |
-| `frequency` | `src/frequency.rs` | Hz/kHz/MHz/GHz/THz scaling + `frequency_to_wavelength` |
-| `noise` | `src/noise.rs` | NF ↔ noise factor ↔ noise temperature, `noise_power_from_bandwidth` |
-| `p1db` | `src/p1db.rs` | `input_to_output_db`, `output_to_input_db` (IP1dB ↔ OP1dB) |
-| `constants` | `src/constants.rs` | `SPEED_OF_LIGHT`, `BOLTZMANN`, `T0`, and other physical constants |
+- **Version:** v0.1.1
+- **Current tests:** 13 total (unit + integration + doctest)
 
 ## Where to Look
 
-- **README.md** — Complete API reference table with every function signature
-- **src/lib.rs** — Module re-exports (5 public modules)
-- Each module file contains the functions and their tests
-- This is a leaf dependency used by `touchstone`, `gainlineup`, and `linkbudget`
+- `README.md` — usage and quick-start example
+- `src/lib.rs` — full engine implementation and unit tests
+- `tests/engine_integration.rs` — integration-level smoke test
+- `benches/engine.rs` — Criterion benchmarks for run and query performance

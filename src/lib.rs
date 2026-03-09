@@ -13,7 +13,7 @@
 //! # Example
 //!
 //! ```
-//! use regulatory_rf::monte_carlo::{Simulation, MonteCarloEngine};
+//! use montycarlo::{MonteCarloEngine, Simulation};
 //! use rand::Rng;
 //!
 //! // Simulate rolling two dice and summing them
