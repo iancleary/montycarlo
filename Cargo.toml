@@ -7,7 +7,7 @@ homepage = "https://github.com/iancleary/montycarlo"
 license = "MIT"
 name = "montycarlo"
 repository = "https://github.com/iancleary/montycarlo"
-version = "0.1.1"
+version = "0.1.0"
 
 [features]
 default = ["parallel"]
