@@ -4,26 +4,33 @@ help:
 
 # format the code
 fmt:
-	cargo fmt --all
+    cargo fmt --all
 
 # alias for fmt
 format: fmt
 
+# check formatting without writing changes
+fmt-check:
+    cargo fmt --all -- --check
+
 # lint the code
 lint:
-	cargo clippy --all-targets --all-features --fix -- -Dclippy::all
+    cargo clippy --all-targets --all-features -- -D warnings
 
-# run the crate
+# run the dice-roll example
 dev:
-  cargo run
+    cargo run --example dice
 
 # build the crate
 build:
-  cargo build --release
+    cargo build --release
 
 # run tests
 test:
-  cargo test
+    cargo test
 
 # Lint and then test targets (like CI does)
-ci: lint test build
+check: fmt-check lint test
+
+# Run checks and build
+ci: check build
