@@ -27,10 +27,18 @@ build:
 
 # run tests
 test:
-    cargo test
+    cargo test --all-features
 
-# Lint and then test targets (like CI does)
-check: fmt-check lint test
+# check documentation with rustdoc warnings denied
+doc-check:
+    RUSTDOCFLAGS="-D warnings" cargo doc --all-features --no-deps
+
+# verify package contents without publishing
+package:
+    cargo package
+
+# format, lint, test, document, and package like CI
+check: fmt-check lint test doc-check package
 
 # Run checks and build
 ci: check build
