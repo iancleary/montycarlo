@@ -17,9 +17,7 @@ impl Simulation for DiceRoll {
 }
 
 fn main() {
-    let result = MonteCarloEngine::new(DiceRoll, 100_000)
-        .with_seed(42)
-        .run();
+    let result = MonteCarloEngine::new(DiceRoll, 100_000).with_seed(42).run();
 
     println!("trials: {}", result.len());
     println!("mean: {:.3}", result.mean());
