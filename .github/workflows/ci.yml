@@ -11,8 +11,11 @@ on:
 env:
   CARGO_TERM_COLOR: always
 
+permissions:
+  contents: read
+
 jobs:
-  build_and_test:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -21,9 +24,9 @@ jobs:
       - name: Check formatting
         run: cargo fmt --all -- --check
       - name: Run clippy
-        run: cargo clippy --all-targets --all-features -- -Dclippy::all
+        run: cargo clippy --all-targets --all-features -- -D warnings
       - name: Run tests
-        run: cargo test
+        run: cargo test --all-features
       - name: Check documentation
         run: RUSTDOCFLAGS="-D warnings" cargo doc --all-features --no-deps
       - name: Verify package
