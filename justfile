@@ -13,17 +13,9 @@ format: fmt
 fmt-check:
 	cargo fmt --all -- --check
 
-# lint the code
+# lint the code without writing changes
 lint:
 	cargo clippy --all-targets --all-features -- -Dclippy::all
-
-# run the crate
-dev:
-  cargo run
-
-# build the crate
-build:
-  cargo build --release
 
 # run tests
 test:
@@ -37,12 +29,20 @@ doc-check:
 package:
   cargo package
 
+# build the crate
+build:
+  cargo build --release
+
+# run the crate
+dev:
+  cargo run
+
 # format, lint, test, document, and package like CI
 check: fmt-check lint test doc-check package
 
 # run the same checks and build mirrored by CI
 ci: check build
 
-# Cut a GitHub release
+# Cut a GitHub release for an explicit SemVer version.
 cut-release *args:
   ./scripts/cut-release.sh {{args}}
