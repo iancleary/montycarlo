@@ -15,13 +15,15 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Use Rust stable
         run: rustup update stable && rustup default stable
-      - name: Build project
-        run: cargo build --verbose
+      - name: Lint
+        run: cargo clippy --all-targets --all-features -- -Dclippy::all
       - name: Run tests
-        run: cargo test --verbose
+        run: cargo test
+      - name: Build release
+        run: cargo build --release
       - name: Publish (on tag)
         if: github.ref_type == 'tag'
         run: cargo publish --verbose

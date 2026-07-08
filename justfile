@@ -11,7 +11,7 @@ format: fmt
 
 # lint the code
 lint:
-	cargo clippy --all-targets --all-features --fix -- -Dclippy::all
+	cargo clippy --all-targets --all-features -- -Dclippy::all
 
 # run the crate
 dev:
