@@ -21,7 +21,7 @@ analysis.
 
 ```toml
 [dependencies]
-montycarlo = "0.1.1"
+montycarlo = "0.1.2"
 ```
 
 ## Quick example
@@ -76,7 +76,7 @@ Disable default features for sequential-only builds:
 
 ```toml
 [dependencies]
-montycarlo = { version = "0.1.0", default-features = false }
+montycarlo = { version = "0.1.2", default-features = false }
 ```
 
 ## Reproducibility
