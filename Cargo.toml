@@ -4,8 +4,11 @@ description = "Generic Monte Carlo simulation engine for Rust"
 documentation = "https://docs.rs/montycarlo"
 edition = "2021"
 homepage = "https://github.com/iancleary/montycarlo"
+keywords = ["monte-carlo", "simulation", "statistics", "random", "parallel"]
+categories = ["algorithms", "science", "simulation"]
 license = "MIT"
 name = "montycarlo"
+readme = "README.md"
 repository = "https://github.com/iancleary/montycarlo"
 version = "0.1.0"
 
