@@ -110,6 +110,9 @@ just test
 just ci
 ```
 
+Agent-oriented maintenance guidance lives in `AGENTS.md` and
+`docs/agent-operating-loop.md`.
+
 ## License
 
 MIT
