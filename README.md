@@ -21,7 +21,7 @@ analysis.
 
 ```toml
 [dependencies]
-montycarlo = "0.1.2"
+montycarlo = "0.1.3"
 ```
 
 ## Quick example
