@@ -76,7 +76,7 @@ Disable default features for sequential-only builds:
 
 ```toml
 [dependencies]
-montycarlo = { version = "0.1.2", default-features = false }
+montycarlo = { version = "0.1.3", default-features = false }
 ```
 
 ## Reproducibility
