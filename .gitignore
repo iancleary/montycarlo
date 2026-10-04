@@ -166,3 +166,4 @@ cython_debug/
 # MacOS
 .DS_Storemutants.out/
 mutants.out/
+.DS_Store
